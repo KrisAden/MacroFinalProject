@@ -1,0 +1,29 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+inletFlowRate
+{
+    type            surfaceFieldValue;
+    libs            ("libfieldFunctionObjects.so");
+
+    log             true;
+    writeControl    timeStep;
+    writeInterval   10;
+    writeFields     true;
+    surfaceFormat   none;
+    regionType      patch;
+    name            inlet;
+
+    operation       areaNormalIntegrate;
+
+    fields
+    (
+        U
+    );
+}
+// ************************************************************************* //
